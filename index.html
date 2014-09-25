@@ -15,8 +15,22 @@
           </div>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" ng-model="artist" placeholder="Artist Name" >
-              <button class="btn btn-primary" ng-click="getSongData()"> Submit </button>
+              <input type="text" class="form-control" ng-model="search.artist" placeholder="Search" ng-keyup="getSongData()">
+              <select ng-model="search.type" ng-change="getSongData()">
+                <option value="all" >All</option>
+                <option value="musicVideo">Music Video</option>
+                <option value="music">Music</option>
+                <option value="movie">Movies</option>
+                <option value="podcast">Podcast</option>
+                <option value="tvShow">TV Show</option>
+              </select>
+              <input type="test" class="form-control" ng-model="search.type" ng-change="getSongData()" placeholder="Search Data">
+              <select ng-model="filterBy" ng-change="">
+                <option value="musicVideo">Music Video</option>
+                <option value="musicArtist">Artist</option>
+                <option value="album">Collection Name</option>
+                <option value="kind">Media Type</option>
+              </select>
             </div>
           </form>
         </div>
