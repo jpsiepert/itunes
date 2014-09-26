@@ -16,7 +16,7 @@
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
               <input type="text" class="form-control" ng-model="search.artist" placeholder="Search" ng-keyup="getSongData()">
-              <select ng-model="search.type" ng-change="getSongData()">
+              <select class="form-control" ng-model="search.type" ng-change="getSongData()">
                 <option value="all" >All</option>
                 <option value="musicVideo">Music Video</option>
                 <option value="music">Music</option>
@@ -24,8 +24,8 @@
                 <option value="podcast">Podcast</option>
                 <option value="tvShow">TV Show</option>
               </select>
-              <input type="test" class="form-control" ng-model="search.type" ng-change="getSongData()" placeholder="Search Data">
-              <select ng-model="filterBy" ng-change="">
+              <input type="test" class="form-control" ng-model="filterOptions.filterText" ng-change="getSongData()" placeholder="Search Data">
+              <select class="form-control" ng-model="filterBy" ng-change=" ">
                 <option value="musicVideo">Music Video</option>
                 <option value="musicArtist">Artist</option>
                 <option value="album">Collection Name</option>
@@ -38,7 +38,7 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-heading"> Your Search Results:</div>
-     <div class="gridStyle" ng-grid="gridOptions" swap-image="defaultInfo.search"></div>
+     <div class="gridStyle" ng-grid="gridOptions | filter: filterOption.filterText" swap-image="defaultInfo.search"></div>
     </div>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
